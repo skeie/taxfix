@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Keyboard, TextInput, Text } from 'react-native';
+import {
+    ScrollView,
+    View,
+    Keyboard,
+    TextInput,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+} from 'react-native';
 import CurrentCurrencyRate from './currencyElement';
 import Search from './search';
 
+const Topbar = ({ time, refreshRates }) => (
+    <View style={styles.topbarContainer}>
+        <Text style={styles.text}>
+            Rates for {time}
+        </Text>
+    </View>
+);
+
 class CurrencyList extends Component {
+    static defaultProps = {
+        currencies: {
+            data: [],
+        },
+    };
     state = {
         currentSearchString: '',
         currencies: this.props.currencies.rates,
@@ -27,7 +48,7 @@ class CurrencyList extends Component {
             );
         } else {
             // if user clears the input field, return initial array
-            return this.props.currencies;
+            return this.props.currencies.rates;
         }
     };
     onSearchStringChange = currentSearchString => {
@@ -41,27 +62,18 @@ class CurrencyList extends Component {
     };
     render() {
         const { currencies } = this.state;
-        console.log('sap', this.props.currencies);
-        debugger;
-
         return (
-            <View style={{ flex: 1, marginTop: 20 }}>
-                <Text
-                    style={{
-                        textAlign: 'center',
-                        paddingVertical: 20,
-                        fontSize: 20,
-                        fontFamily: 'DamascusBold',
-                        color: 'black',
-                    }}>
-                    Rates for {this.props.currencies.time}
-                </Text>
+            <View style={[styles.container, styles.paddingToStatusBar]}>
+                <Topbar
+                    time={this.props.currencies.time}
+                    refreshRates={this.props.fetchRates}
+                />
                 <Search
                     onChangeText={this.onSearchStringChange}
                     value={this.state.currentSearchString}
                 />
                 <ScrollView
-                    style={{ flex: 1 }}
+                    style={styles.container}
                     keyboardShouldPersistTaps="never"
                     onScroll={Keyboard.dismiss}>
                     {currencies.map(({ rate, currency }, index) => (
@@ -77,5 +89,32 @@ class CurrencyList extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    text: {
+        textAlign: 'center',
+        paddingVertical: 20,
+        fontSize: 20,
+        fontFamily: 'DamascusBold',
+        color: 'black',
+    },
+    container: {
+        flex: 1,
+    },
+    paddingToStatusBar: {
+        paddingTop: 20,
+    },
+    topbarContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 40,
+    },
+    refreshText: {
+        marginLeft: 5,
+        fontFamily: 'Damascus',
+        fontSize: 16,
+    },
+});
 
 export default CurrencyList;

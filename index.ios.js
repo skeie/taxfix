@@ -5,11 +5,11 @@
  */
 import { AppRegistry } from 'react-native';
 import React, { Component } from 'react';
-import App from './src/app';
+import Routes from './src/components/router/routes';
 
 export default class taxfix extends Component {
     render() {
-        return <App />;
+        return <Routes />;
     }
 }
 AppRegistry.registerComponent('taxfix', () => taxfix);

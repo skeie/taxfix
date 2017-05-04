@@ -1,22 +1,26 @@
 import React from 'react';
-import { TextInput } from 'react-native';
-import { purple } from '../../theme/colors';
+import { TextInput, StyleSheet } from 'react-native';
+import { purple, lemonMeringue } from '../../theme/colors';
 import { width as screenWidth } from '../../utils/utils';
 const Search = ({ onChangeText, value }) => {
     return (
         <TextInput
-            style={{
-                height: 50,
-                width: screenWidth,
-                borderColor: '#F4E8C1',
-                borderWidth: 5,
-                paddingHorizontal: 5,
-            }}
+            style={styles.textInput}
             onChangeText={onChangeText}
             value={value}
             placeholder="Search for currency"
         />
     );
 };
+
+const styles = StyleSheet.create({
+    textInput: {
+        height: 50,
+        width: screenWidth,
+        borderColor: lemonMeringue,
+        borderWidth: 5,
+        paddingLeft: 15,
+    },
+});
 
 export default Search;

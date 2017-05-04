@@ -1,2 +1,3 @@
 - Use Redux to store offline. If not it would prob be OK with use React's interal state.
 - I've started downloading the top currency converts in google play to get inspiration. I also looked at UI8 and dribble.
+dont have imgs in 3 sizes
