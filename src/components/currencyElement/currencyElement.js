@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { paradisePink, purple, lemonMeringue } from '../../theme/colors';
+import { paradisePink, purple, blue } from '../../theme/colors';
 import { convertCurrency } from '../convertCurrencies/convertCurrencies';
 import {
     width as screenWidth,
@@ -36,12 +36,12 @@ const CurrencyInput = ({
     <View
         style={[
             styles.currencyInputContainer,
-            { borderBottomColor: isActive ? lemonMeringue : 'white' },
+            { borderBottomColor: isActive ? blue : 'black' },
         ]}>
         <TextInput
             style={styles.textInput}
-            placeholderTextColor={lemonMeringue}
-            selectionColor={lemonMeringue}
+            placeholderTextColor="black"
+            selectionColor={blue}
             onBlur={onBlur}
             keyboardType="numeric"
             onChangeText={onUserAmountChange}
@@ -91,15 +91,9 @@ class CurrencyRate extends Component {
         });
     };
     render() {
-        const { isPinkColor, currency, rate } = this.props;
+        const { currency, rate } = this.props;
         return (
-            <View
-                style={[
-                    styles.container,
-                    {
-                        backgroundColor: isPinkColor ? paradisePink : purple,
-                    },
-                ]}>
+            <View style={[styles.container]}>
                 <EuroInput
                     {...this.state}
                     onUserAmountChange={this.onUserAmountChange}
@@ -123,21 +117,24 @@ export default CurrencyRate;
 const styles = StyleSheet.create({
     text: {
         fontSize: 20,
-        fontFamily: 'DamascusBold',
-        color: 'white',
+        fontFamily: 'Damascus',
+        color: 'black',
     },
     currencyName: {
-        fontSize: 14,
-        fontFamily: 'DamascusBold',
-        color: 'white',
+        fontSize: 20,
+        fontFamily: 'Damascus',
+        color: 'black',
         marginHorizontal: 5,
+        marginBottom: 3,
     },
     container: {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        height: screenHeigth / 5,
+        height: 77,
         paddingHorizontal: 40,
+        borderColor: '#EBEBEB',
+        borderWidth: 1,
     },
     resultContainer: {
         flexDirection: 'row',
@@ -148,19 +145,20 @@ const styles = StyleSheet.create({
     multiply: {
         fontSize: 15,
         fontFamily: 'Damascus',
-        color: 'white',
+        color: '#A4B0BC',
         marginHorizontal: 5,
     },
     currencyContainer: {
-        width: '50%',
+        width: '60%',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
     },
     textInput: {
         height: 30,
         fontSize: 20,
-        fontFamily: 'DamascusBold',
-        color: 'white',
+        fontFamily: 'Damascus',
+        color: 'black',
         textAlign: 'center',
     },
     currencyInputContainer: {
@@ -173,8 +171,7 @@ const styles = StyleSheet.create({
     },
     sum: {
         fontSize: 20,
-        fontFamily: 'DamascusBold',
-        color: 'white',
-        marginLeft: 5,
+        fontFamily: 'Damascus',
+        color: 'black',
     },
 });

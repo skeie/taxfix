@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
-import { purple, lemonMeringue } from '../../theme/colors';
 import { width as screenWidth } from '../../utils/utils';
 const Search = ({ onChangeText, value }) => {
     return (
@@ -16,9 +15,9 @@ const Search = ({ onChangeText, value }) => {
 const styles = StyleSheet.create({
     textInput: {
         height: 50,
-        width: screenWidth,
-        borderColor: lemonMeringue,
-        borderWidth: 5,
+        width: screenWidth - 30,
+        margin: 15,
+        backgroundColor: '#EBEBEB',
         paddingLeft: 15,
     },
 });
