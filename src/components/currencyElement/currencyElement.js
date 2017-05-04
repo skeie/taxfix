@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
     },
     currencyContainer: {
-        width: '50%',
+        width: '60%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -173,6 +173,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'Damascus',
         color: 'black',
-        marginLeft: 5,
     },
 });
