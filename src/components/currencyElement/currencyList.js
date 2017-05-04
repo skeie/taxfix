@@ -75,10 +75,10 @@ class CurrencyList extends Component {
                 <ScrollView
                     style={styles.container}
                     keyboardShouldPersistTaps="never"
-                    onScroll={Keyboard.dismiss}>
+                    onScroll={Keyboard.dismiss}
+                    spli>
                     {currencies.map(({ rate, currency }, index) => (
                         <CurrentCurrencyRate
-                            isPinkColor={index % 2 === 0}
                             rate={rate}
                             currency={currency}
                             key={currency}
@@ -92,23 +92,22 @@ class CurrencyList extends Component {
 
 const styles = StyleSheet.create({
     text: {
-        textAlign: 'center',
         paddingVertical: 20,
         fontSize: 20,
         fontFamily: 'DamascusBold',
-        color: 'black',
+        color: 'white',
     },
     container: {
         flex: 1,
+        backgroundColor: 'white',
     },
     paddingToStatusBar: {
         paddingTop: 20,
     },
     topbarContainer: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 40,
+        paddingHorizontal: 20,
+        backgroundColor: '#1782D4',
     },
     refreshText: {
         marginLeft: 5,

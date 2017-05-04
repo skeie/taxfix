@@ -45,7 +45,7 @@ export default class Router extends React.Component {
         currencies: [],
     };
     componentDidMount() {
-        // StatusBar.setHidden(true);
+        StatusBar.setHidden(false);
         this.fetchRates();
     }
 
